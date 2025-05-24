@@ -2,13 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- A little message for users who have JavaScript disabled -->
+    <noscript>
+      This page requires JavaScript to load properly.
+    </noscript>
+    <!-- The script that builds the page and powers Decap CMS -->
     <script>
-      window.CMS_MANUAL_INIT = true;
+      CMS.init();
     </script>
-    <script src="/admin/config.js"></script>
   </body>
 </html> 
