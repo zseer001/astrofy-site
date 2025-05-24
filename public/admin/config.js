@@ -21,7 +21,6 @@ window.CMS.init({
           { label: "Body", name: "body", widget: "markdown" }
         ]
       }
-      // 你可以继续添加 Store、Guides、Reviews 等内容集合
     ]
   }
 }); 
