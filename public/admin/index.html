@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <!-- A little message for users who have JavaScript disabled -->
@@ -12,8 +11,23 @@
       This page requires JavaScript to load properly.
     </noscript>
     <!-- The script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      CMS.init();
+      // Wait for the CMS to load, then initialize
+      window.addEventListener('DOMContentLoaded', function() {
+        if (window.CMS) {
+          CMS.init();
+        } else {
+          // Fallback: wait a bit more for the library to load
+          setTimeout(function() {
+            if (window.CMS) {
+              CMS.init();
+            } else {
+              console.error('Decap CMS failed to load');
+            }
+          }, 1000);
+        }
+      });
     </script>
   </body>
 </html> 
