@@ -1,0 +1,27 @@
+window.CMS.init({
+  config: {
+    backend: {
+      name: "git-gateway",
+      branch: "main",
+    },
+    media_folder: "public/uploads",
+    public_folder: "/uploads",
+    collections: [
+      {
+        name: "blog",
+        label: "Blog",
+        folder: "src/content/blog",
+        create: true,
+        slug: "{{slug}}",
+        fields: [
+          { label: "Title", name: "title", widget: "string" },
+          { label: "Publish Date", name: "pubDate", widget: "datetime" },
+          { label: "Description", name: "description", widget: "text" },
+          { label: "Hero Image", name: "heroImage", widget: "image" },
+          { label: "Body", name: "body", widget: "markdown" }
+        ]
+      }
+      // 你可以继续添加 Store、Guides、Reviews 等内容集合
+    ]
+  }
+}); 
